@@ -17,32 +17,48 @@
 <ion-grid *ngIf="weather">
     <ion-row>
       <ion-col width-50 offset-25>
-        <h2 class="location">{{weather.display_location.full}}</h2>
-        <div class="icon"><img src="{{weather.icon_url}}" alt=""></div>
-        <h3 class="desc">{{weather.weather}}</h3>
-        <h1 class="temp">{{weather.temp_f}}&deg;</h1>
+        <h2 class="centralize font-30">{{weather.display_location.full}}</h2>
+        <h3 class="centralize font-20 ">{{weather.weather}}</h3>
+		<div class="centralize"><img src="{{weather.icon_url}}" alt=""></div>
+        
+        <h1 class="centralize degree_temp font-50">{{weather.temp_c}}&deg; C</h1>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col width-100>
+      <ion-col>
         <ion-list>
-          <ion-item>
-            <strong>Temp: </strong> {{weather.temperature_string}}
+          <ion-item color="primary">
+            <em>Temperature: </em> {{weather.temp_c}}&deg; C
           </ion-item>
-          <ion-item>
-            <strong>Relative Humidity: </strong> {{weather.relative_humidity}}
+          <ion-item color="light">
+            <em>Relative Humidity: </em> {{weather.relative_humidity}}
           </ion-item>
-          <ion-item>
-            <strong>Dewpoint: </strong> {{weather.dewpoint_string}}
+          <ion-item color="primary">
+            <em>Dewpoint: </em> {{weather.dewpoint_string}}
           </ion-item>
-          <ion-item>
-            <strong>Visibility: </strong> {{weather.visibility_mi}}
+          <ion-item color="light">
+            <em>Visibility: </em> {{weather.visibility_mi}}
           </ion-item>
-          <ion-item>
-            <strong>Heat Index: </strong> {{weather.heat_index_string}}
+          <ion-item color="primary">
+            <em>Heat Index: </em> {{weather.heat_index_string}}
           </ion-item>
+		  
         </ion-list>
+		
+      </ion-col>
+    </ion-row>
+	
+  </ion-grid>
+  <ion-grid *ngIf="!weather">
+  <ion-row>
+      <ion-col width-50 offset-25>
+        
+        
+        <h5 class="centralize" ion-item color="danger" >We sorry, but we can't get weather condition information for {{state}} state at the moment</h5>
+		<h4 class="centralize">Kindly check back later</h4>
+  
       </ion-col>
     </ion-row>
   </ion-grid>
+  <button ion-item class = "centralize" outline    (click)="lgaList(lgas)" ><p style = "color:olive; font-size:16px;" >{{state}} state is made up of <b>{{lgas.length}}</b> Local Goverment Areas, Click to see list </p></button>
 </ion-content>

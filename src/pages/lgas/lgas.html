@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title> {{state}}  </ion-title> 
+    <ion-title> Local Government Areas  </ion-title> 
 	<ion-buttons end>
 	<label padding >{{lgas.length}} </label>
 	</ion-buttons>
@@ -17,11 +17,11 @@
 
 
 <ion-content padding>
-<ion-list>
-    <button ion-item *ngFor="let lga of lgas" (click) = updateLga(lga) >
+  <ion-list>
+    <button ion-item *ngFor="let lga of lgas" >
       <ion-icon name="pin" item-left></ion-icon>
       {{lga}}
-      
+  
     </button>
   </ion-list>
-  </ion-content>
+</ion-content>

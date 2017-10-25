@@ -6,7 +6,6 @@ import { CacheModule } from 'ionic-cache';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LgasPage } from '../pages/lgas/lgas';
-import {UpdateLgaPage} from '../pages/update-lga/update-lga';
 import {WeatherPage} from '../pages/weather/weather';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -19,7 +18,6 @@ import { WeatherDataProvider } from '../providers/weather-data/weather-data';
     MyApp,
     HomePage,
 	LgasPage,
-	UpdateLgaPage,
 	WeatherPage
   ],
   imports: [
@@ -33,7 +31,6 @@ import { WeatherDataProvider } from '../providers/weather-data/weather-data';
     MyApp,
     HomePage,
 	LgasPage,
-	UpdateLgaPage,
 	WeatherPage
   ],
   providers: [

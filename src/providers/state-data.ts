@@ -3,7 +3,7 @@ import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of';
-
+import { CacheService } from 'ionic-cache';
 
 
 
@@ -16,18 +16,25 @@ import 'rxjs/add/observable/of';
 @Injectable()
 export class StateDataProvider {
 states: Observable<any>;
+stateKey = 'state-group';
   data: any;
-  constructor(public http: Http) {}
-'assets/data/state-data.json'  
+  constructor(public http: Http, public cache: CacheService) {}
+
     load(): any {
     if (this.data) {
       return Observable.of(this.data);
     } else {
+	
+	let delayType = 'all';
+	//state data to be cached for a week
+    let ttl = 60*60*24*7;
 	let url = 'http://locationsng-api.herokuapp.com/api/v1/lgas';
-	return this.http.get(url)
-		.map(res => res.json());  
+	let req = this.http.get(url);
+	
+	return this.cache.loadFromDelayedObservable(url, req, this.stateKey, ttl, delayType).map(res => res.json());
+	
 	}
-  }
+  } 
   
 
   getStates() {

@@ -7,18 +7,17 @@
   </ion-navbar>
   
     <ion-toolbar no-border-top>
-    <ion-searchbar color="light"              placeholder="Filter States">
+    <ion-searchbar color="light" placeholder="Filter States">
     </ion-searchbar>
   </ion-toolbar>
   
 </ion-header>
 
 <ion-content padding>
-<ion-list>
-    <button ion-item *ngFor="let state of states" (click) = checkWeather(state) >
-      <ion-icon name="pin" item-left></ion-icon>
-      {{state.state}}
-      
-    </button>
-  </ion-list>
-  </ion-content>
+	<ion-list>
+		<button ion-item *ngFor="let state of states" (click) = checkWeather(state) >
+			<ion-icon name="pin" item-left></ion-icon>
+				{{state.state}}
+		</button>
+	</ion-list>
+</ion-content>

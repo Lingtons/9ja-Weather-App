@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { WeatherDataProvider } from '../../providers/weather-data/weather-data';
+import {LgasPage} from '../lgas/lgas';
 
 /**
  * Generated class for the WeatherPage page.
@@ -33,6 +34,12 @@ export class WeatherPage {
 		  console.log(this.weather);
         });
 	
+  }
+  
+  lgaList(lgas){
+  
+  this.navCtrl.push(LgasPage, {lgas});
+  
   }
   
 

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
-import {UpdateLgaPage} from '../update-lga/update-lga';
+import { IonicPage, NavController, NavParams} from 'ionic-angular';
+
 
 
 /**
@@ -19,7 +19,7 @@ export class LgasPage {
 state : any;
 lgas : any[] = [];
 alias : any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl : ModalController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
     
 	
@@ -27,14 +27,11 @@ alias : any;
     this.state  = this.navParams.get('state');
 	this.lgas  = this.navParams.get('lgas');
 	this.alias  = this.navParams.get('alias');
+	console.log(this.lgas);
 	
   }
   
-  updateLga(lga){
-let modal = this.modalCtrl.create(UpdateLgaPage, {lga});
-modal.present();
-  
-  }
+
   
     
 

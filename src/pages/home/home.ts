@@ -16,10 +16,7 @@ states : any[] = [];
 			public statesData: StateDataProvider
 			)
 
-			{
-
-			
-  }
+			{}
   
   
   	ionViewDidLoad() {
